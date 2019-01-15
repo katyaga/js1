@@ -1,10 +1,149 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>ДЗ-2</title>
 </head>
 <body>
+    <script>
+        function task_3() {
 
+            let a = parseInt(prompt('Введите первое число: '));
+            let b = parseInt(prompt('Введите второе число: '));
+            if(isNaN(a) || isNaN(b)) {
+                alert('Вы ввели не число!');
+                return;
+            }
+
+            function calc(c, d) {
+                if (c >= 0 && d >= 0) {
+                    alert(c - d);
+                } else if (c < 0 && d < 0) {
+                    alert(c * d)
+                } else {
+                    alert(c + d)
+                }
+            }
+
+            calc(a, b);
+        }
+
+        // Задание 4
+        function task_4() {
+            function alert_numbers(a, b) {
+                let output = '';
+                for(let i=a; i<=b; i++) {
+                    output += i + ' ';
+
+                }
+                alert(output);
+            }
+
+            let k = Math.floor(Math.random() * 16);
+            alert(k);
+            switch(k) {
+                case 0:
+                    alert_numbers(0, 15);
+                    break;
+                case 1:
+                    alert_numbers(1, 15);
+                    break;
+                case 2:
+                    alert_numbers(2, 15);
+                    break;
+                case 3:
+                    alert_numbers(3, 15);
+                    break;
+                case 4:
+                    alert_numbers(4, 15);
+                    break;
+                case 5:
+                    alert_numbers(5, 15);
+                    break;
+                case 6:
+                    alert_numbers(6, 15);
+                    break;
+                case 7:
+                    alert_numbers(7, 15);
+                    break;
+                case 8:
+                    alert_numbers(8, 15);
+                    break;
+                case 9:
+                    alert_numbers(9, 15);
+                    break;
+                case 10:
+                    alert_numbers(10, 15);
+                    break;
+                case 11:
+                    alert_numbers(11, 15);
+                    break;
+                case 12:
+                    alert_numbers(12, 15);
+                    break;
+                case 13:
+                    alert_numbers(13, 15);
+                    break;
+                case 14:
+                    alert_numbers(14, 15);
+                    break;
+                case 15:
+                    alert_numbers(15, 15);
+                    break;
+                default:
+                    alert('ошибка');
+            }
+        }
+
+        // Задание 5
+        function add(i, j) {
+            return i + j;
+        }
+        function sub(i, j) {
+            return i - j;
+        }
+        function mult(i, j) {
+            return i*j;
+        }
+        function div(i, j) {
+            if(j === 0){
+                return ('На ноль делить нельзя!')
+            } else {
+                return i/j;
+            }
+        }
+
+        // Задание 6
+        function mathOperation(arg1, arg2, operation) {
+            switch (operation) {
+                case '+':
+                    console.log('+');
+                    return add(arg1, arg2);
+                case '-':
+                    return sub(arg1, arg2);
+                case '*':
+                    return mult(arg1, arg2);
+                case '/':
+                    return div(arg1, arg2);
+                default:
+                    return 'Неизвестная арифметическая операция';
+            }
+        }
+
+        // Задание 7
+        function power(val, pow) {
+            if(pow === 0) {
+                return 1;
+            } else {
+                return val*power(val, pow - 1);
+            }
+        }
+
+        task_3();
+        task_4();
+        alert(div(2, 2));
+        alert(mathOperation(3, 0, '+'));
+        alert(power(5, 4));
+
+    </script>
 </body>
 </html>
