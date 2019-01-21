@@ -1,0 +1,64 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+    <title>ДЗ-3</title>
+</head>
+<body>
+<header>
+    <h1>Домашнее задание к 3-й лекции</h1>
+</header>
+
+    <script>
+
+        function task_1() {
+            let j = 0;
+            let arr_prime = [];
+
+            for(let i=2; i <=100; i++) {
+                for(j = 2; j < i; j++) {
+                    if(i%j === 0) {
+                        break;
+                    }
+                }
+                if(i === j) {
+                    arr_prime.push(i);
+                }
+            }
+            console.log(arr_prime);
+        }
+
+        function task_2() {
+            let k = 0;
+            do {
+                if(k === 0) {
+                    console.log(k + ' - это ноль');
+                } else if(k%2 === 0) {
+                    console.log(k + ' - чётное число');
+                } else if(k%2 !== 0) {
+                    console.log(k + ' - нечётное число');
+                }
+                k++;
+            } while (k <= 10)
+        }
+
+        function  task_3() {
+            for(let i=0; console.log(i) || i < 9; i++) {}
+        }
+
+        function task_4() {
+            let m = '';
+            for(let i = 1; i <= 20; i++) {
+                m = m + 'x';
+                console.log(m);
+            }
+        }
+
+    </script>
+
+    <button type="button" onclick="task_1()">Задание 1</button>
+    <button type="button" onclick="task_2()">Задание 2</button>
+    <button type="button" onclick="task_3()">Задание 3</button>
+    <button type="button" onclick="task_4()">Задание 4</button>
+</body>
+</html>
