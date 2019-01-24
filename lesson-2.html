@@ -1,10 +1,16 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet" type="text/css"/>
     <title>ДЗ-2</title>
 </head>
 <body>
+<header>
+    <h1>Домашнее задание к 2-й лекции</h1>
+</header>
+
     <script>
+
         function task_3() {
 
             let a = parseInt(prompt('Введите первое число: '));
@@ -94,6 +100,8 @@
             }
         }
 
+
+
         // Задание 5
         function add(i, j) {
             return i + j;
@@ -130,6 +138,7 @@
         }
 
         // Задание 7
+
         function power(val, pow) {
             if(pow === 0) {
                 return 1;
@@ -137,13 +146,25 @@
                 return val*power(val, pow - 1);
             }
         }
+        function task_7() {
+            let val = prompt('Введите число:');
+            let pow = prompt('Введите степень числа:');
+            alert(power(val, pow));
 
-        task_3();
+        }
+
+
+       /* task_3();
         task_4();
         alert(div(2, 2));
         alert(mathOperation(3, 0, '+'));
-        alert(power(5, 4));
+        alert(power(5, 4));*/
 
     </script>
+
+    <button type="button" onclick="task_3()">Задание 1</button>
+    <button type="button" onclick="task_4()">Задание 4</button>
+    <button type="button" onclick="alert(mathOperation(3, 0, '+'))">Задание 6</button>
+    <button type="button" onclick="task_7()">Задание 7</button>
 </body>
 </html>
