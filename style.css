@@ -1,26 +1,50 @@
-@charset "utf-8";
-
-* {
-    font-family: Times New Roman serif;
-
+.main {
+    width: 450px;
+    margin: 0 auto;
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 70px;
 }
 
-button {
-    display: block;
-    padding: 5px 15px;
-    margin: 0 auto;
-    margin-bottom: 15px;
-    background-color: #f7f7f7;
-    border: 2px solid #626262;
-    border-radius: 3px;
-    font-size: 20px;
+.row {
+    width: 450px;
+    height: 50px;
+    border: 1px solid #000000;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    display: flex;
 }
 
-button:hover {
-    cursor: pointer;
+.cell {
+    width: 50px;
+    height: inherit;
+    border: 1px solid #000000;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    text-align: center;
 }
+
+.row:first-child,
+.row:last-child {
+    height: 25px;
+    background-color: #a9a9a9;
+}
+
+.cell:first-child,
+.cell:last-child {
+    width: 25px;
+    background-color: #a9a9a9;
+}
+
+.black {
+    color: #ffffff;
+    background-color: #000000;
+}
+
+.white {
+    color: #000000;
+}
+
+
+

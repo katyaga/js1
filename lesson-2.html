@@ -152,6 +152,25 @@
             alert(power(val, pow));
 
         }
+        function task_8() {
+            var numbers = [3, 5, 15, 6, 2, 1];
+
+            for(i = 0; i < numbers.length - 1; i++) {
+                var min_number = numbers[0];
+                con
+                for(j = i + 1; j < numbers.length; j++) {
+                    if(j < i) {
+                        var a = numbers[0];
+                        min_number = numbers[j];
+                        numbers[j] = a;
+                    }
+                }
+            }
+            console.log(numbers);
+
+        }
+
+
 
 
        /* task_3();
@@ -166,5 +185,7 @@
     <button type="button" onclick="task_4()">Задание 4</button>
     <button type="button" onclick="alert(mathOperation(3, 0, '+'))">Задание 6</button>
     <button type="button" onclick="task_7()">Задание 7</button>
+    <button type="button" onclick="task_8()">Задание 8</button>
+
 </body>
 </html>
