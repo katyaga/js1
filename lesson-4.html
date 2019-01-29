@@ -1,0 +1,201 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+    <title>ДЗ-4</title>
+
+    <!-- data scripts -->
+    <script type="application/javascript" src="scripts/lesson4_task3_data.js"></script>
+</head>
+<body>
+<header>
+    <h1>Домашнее задание к 4-й лекции</h1>
+</header>
+
+<script>
+    function task_1() {
+        let digits = function (number) {
+            let digits_of_number = {};
+            if(number < 1000) {
+                digits_of_number.единицы = number%10;
+                digits_of_number.десятки = Math.floor(number/10%10);
+                digits_of_number.сотни = Math.floor(number/100);
+            } else {
+                console.log('Число превышает заданный диапазон от 0 до 999');
+            }
+            console.log(digits_of_number);
+        };
+        digits(4500);
+    }
+
+    function task_2() {
+        /*
+**************GOALKEEPER****************
+  -------------------------------------
+  |  topleft   |  top   |  topright   |
+  --------------------------
+  |    left    | center |   right     |
+  --------------------------
+  | bottomleft | bottom | bottomright |
+  --------------------------------------
+*/
+        const sectors = [
+            'topleft',
+            'top',
+            'topright',
+            'left',
+            'center',
+            'right',
+            'bottomleft',
+            'bottom',
+            'bottomright',
+        ];
+
+        const goalKeeper = {
+            defendSector: null,
+            savesToWin: 2,
+            saves: 0,
+            init() {
+                console.log('HERE');
+                const sectorNum = Math.trunc(Math.random() * 9);
+                this.defendSector = sectors[sectorNum];
+                console.log(this.defendSector);
+            },
+            checkWin() {
+                if (this.saves === this.savesToWin) {
+                    console.log('Goalkeeper wins!!!' + ' За ' + step + ' шагов');
+                    return true;
+                }
+                console.log('Goalkeeper need ' + (this.savesToWin - this.saves) + ' more saves');
+                return false;
+            },
+        };
+
+
+        /* eslint no-param-reassign: 0 */
+        const attacker = {
+            sectorToAttack: null,
+            goals: 0,
+            goalsToWin: 10,
+            init(sector) {
+                if (sectors.indexOf(sector) >= 0) {
+                    this.sectorToAttack = sector;
+                    return true;
+                }
+                return false;
+            },
+            attack(keeper) {
+                console.log(keeper.defendSector, this.sectorToAttack);
+                if (keeper.defendSector === this.sectorToAttack) {
+                    console.log('SAVE!!!');
+                    keeper.saves++;
+                    return false;
+                }
+                console.log('GOAL!!!');
+                this.goals++;
+                return true;
+            },
+            checkWin() {
+                if (this.goals === this.goalsToWin) {
+                    console.log('Attacker wins!!! ' + ' За ' + step + ' шагов');
+                    return true;
+                }
+                console.log('Attacker need ' + (this.goalsToWin - this.goals) + ' more goals');
+                return false;
+            },
+        };
+
+        const steps = {
+            round: [],
+        };
+        let keeperWins = false;
+        let attackerWins = false;
+        let step = 0;
+
+        do {
+            let currentAttacksector;
+            do {
+                currentAttacksector = prompt('Choose sector to attack ( ' + sectors.join(', ') + ' )');
+            } while (!attacker.init(currentAttacksector));
+            step += 1;
+            console.log('Ход № ' + step);
+            goalKeeper.init();
+            attacker.attack(goalKeeper);
+
+            keeperWins = goalKeeper.checkWin();
+            attackerWins = attacker.checkWin();
+           steps.round.push([step, goalKeeper.defendSector, attacker.sectorToAttack, ]);
+        } while (!keeperWins && !attackerWins);
+
+        let show_step;
+        show_step = prompt('Какой ход хотите посмотреть? ');
+        alert(show_step);
+        alert(steps.round[show_step - 1]);
+    }
+
+
+    function  task_3() {
+        // "questions" in scripts/lesson4_task3_data.js
+        const player = {
+            protected_amount: 0,
+            total_amount: 0,
+            is_choice_valid(answer_id) {
+                return Number.isInteger(answer_id) && answer_id > 0 && answer_id < 5;
+            },
+            set_protected_amount(num_question) {
+                if (num_question < 2) {
+                    this.protected_amount = questions[num_question].question_amount;
+                } else if (num_question >= 3 && num_question < 6) {
+                    this.protected_amount = questions[2].question_amount;
+                } else if (num_question >= 6) {
+                    this.protected_amount = questions[6].question_amount;
+                }
+            },
+        };
+
+        for (let i = 0; i < questions.length; i++) {
+            let current_answer;
+
+            do {
+                current_answer = Number(
+                    prompt(
+                        questions[i].question +
+                        'Варианты ответа: ' +
+                        '\n' + questions[i].possible_answers.join('; \n')
+                ));
+                console.log(typeof current_answer);
+            } while (!player.is_choice_valid(current_answer));
+
+            if (current_answer - 1 === questions[i].answer_id) {
+                console.log('Правильный ответ');
+                player.total_amount = questions[i].question_amount;
+
+                // if (player.total_amount === questions[9].question_amount) {
+                if (i === questions.length - 1) {
+                    console.log('Поздравляем, вы стали миллионером!!!');
+                    break;
+                }
+                player.set_protected_amount(i);
+                console.log('Ваш выигрыш: ' + player.total_amount + ' руб.');
+                console.log('Несгораемая сумма: ' + player.protected_amount + ' руб.');
+                let next_question = prompt('Ваш выигрыш: ' + player.total_amount + ' руб.'
+                    + '\nНесгораемая сумма: ' + player.protected_amount + ' руб.'
+                    + '\nЗакончить игру? да - 1');
+                if (next_question) {
+                    break;
+                }
+            } else {
+                alert('Неправильный ответ');
+                alert('Ваш выигрыш: ' + player.protected_amount + ' руб.');
+                break;
+            }
+        }
+    }
+
+</script>
+
+<button type="button" onclick="task_1()">Задание 1</button>
+<button type="button" onclick="task_2()">Задание 2</button>
+<button type="button" onclick="task_3()">Задание 3</button>
+</body>
+</html>
