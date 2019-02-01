@@ -1,0 +1,82 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link href="style-6.css" rel="stylesheet" type="text/css"/>
+    <title>ДЗ-6</title>
+    <!-- data scripts -->
+</head>
+<body>
+<header>
+    <h1>Домашнее задание к 6-й лекции</h1>
+    <div class="cart">
+        <div>
+            <h2>В корзине: </h2>
+            <ul class="product_list_in_cart">
+            </ul>
+        </div>
+        <div class="total_quantity_products">0 шт.</div>
+        <p class="total_amount">Сумма заказа: </p>
+    </div>
+</header>
+<!-- В этот момент функция myClick уже должна быть определена -->
+<div class="slider">
+    <button class="slider-button back">предыдущая</button>
+    <div class="big" id="bigPicture"></div>
+    <button class="slider-button next">следующая</button>
+</div>
+<div class="icons">
+    <img class="small" width="120" data-big-src="img/big/1.jpeg" src="img/small/1.jpg" />
+    <img class="small" width="120" data-big-src="img/big/2.jpeg" src="img/small/2.jpg" />
+    <img class="small" width="120" data-big-src="img/big/3.jpg" src="img/small/3.jpg" />
+</div>
+
+<ul class="catalog-list">
+   <!-- <li class="product-item">
+        <div class="product-photo">
+            <img src="img/ботинки.jpg" alt="Ботинки">
+        </div>
+        <h3 class="product-name"><a href="#">Ботинки</a></h3>
+        <p class="price">5000</p>
+        <a class="button buy" href="https://geekbrains.ru">Купить</a>
+    </li>
+    <li class="product-item">
+        <div class="product-photo">
+            <img src="img/тапочки_домашние.jpg" alt="Тапочки домашние" width="200" height="112">
+        </div>
+        <h3 class="product-name"><a href="#">Тапочки домашние</a></h3>
+        <p class="price">1500</p>
+        <a class="button buy" href="#">Купить</a>
+    </li>
+    <li class="product-item">
+        <div class="product-photo">
+            <img src="img/босоножки.jpg" alt="Босоножки" width="200" height="112">
+        </div>
+        <h3 class="product-name"><a href="#">Босоножки</a></h3>
+        <p class="price">4000</p>
+        <a class="button buy" href="#">Купить</a>
+    </li>
+    <li class="product-item">
+        <div class="product-photo">
+            <img src="img/кроссовки.jpg" alt="Кроссовки" width="200" height="112">
+        </div>
+        <h3 class="product-name"><a href="#">Кроссовки</a></h3>
+        <p class="price">4500</p>
+        <a class="button buy" href="#">Купить</a>
+    </li> -->
+</ul>
+<div class="modal">
+    <section class="modal-div">
+        <h4 class="visually-hidden">Информация о покупке</h4>
+        <button class="modal-buy-close" type="button">
+            <span class="visually-hidden">Закрыть</span>
+        </button>
+        <b>Товар добавлен в корзину!</b>
+        <div class="modal-buttons">
+            <a class="modal-checkout button" href="#">Оформить заказ</a>
+            <a class="modal-continue button" href="#">Продолжить покупки</a>
+        </div>
+    </section>
+</div>
+<script type="application/javascript" src="scripts/lesson6.js"></script>
+</body>
+</html>
